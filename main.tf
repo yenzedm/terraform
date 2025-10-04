@@ -2,6 +2,7 @@ module "compute" {
   for_each = var.vms
   source          = "./modules/compute"
   vm_name         = each.key
+  vm_template_id  = each.value.vm_template_id 
   tags            = each.value.tags
   target_node     = each.value.target_node
   vm_cores        = each.value.vm_cores

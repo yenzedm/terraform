@@ -1,6 +1,7 @@
 proxmox_api_url = "https://192.168.1.111:8006"
 vms = {
   "ubuntu-zabbix" = {
+    vm_template_id = 9001
     vm_username = "ubuntu"
     tags = ["terraform", "ubuntu", "zabbix"]
     target_node = "proxmox" 

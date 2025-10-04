@@ -14,7 +14,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
   # Use template created by Packer
   clone {
-    vm_id = 9001
+    vm_id = var.vm_template_id
     full  = true
   }
 
