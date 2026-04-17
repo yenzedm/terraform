@@ -31,6 +31,7 @@ variable "vms" {
     network_bridge = string
     ssh_public_keys = string
     vm_username = string
+    description = string
   }))
 }
 

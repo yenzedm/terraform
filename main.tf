@@ -1,3 +1,4 @@
+# create vm
 module "compute" {
   for_each = var.vms
   source          = "./modules/compute"
@@ -15,4 +16,5 @@ module "compute" {
   ssh_public_keys = each.value.ssh_public_keys
   vm_username     = each.value.vm_username
   vm_password     = var.vm_password
+  description     = each.value.description
 }
