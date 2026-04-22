@@ -17,6 +17,10 @@ variable "vm_password" {
   default   = null
 }
 
+variable "clone_mod" {
+  type = bool
+}
+
 variable "vms" {
   type = map(object({
     vm_template_id = string
