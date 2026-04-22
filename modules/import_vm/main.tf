@@ -13,6 +13,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
   description   = var.description
   scsi_hardware = var.scsi_hardware
 
+  agent {
+    enabled = var.enabled
+  }
+  
   cpu {
     cores = var.vm_cores
     type  = var.type
