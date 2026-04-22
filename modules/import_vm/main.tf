@@ -8,14 +8,14 @@ terraform {
 }
 
 resource "proxmox_virtual_environment_vm" "vm" {
-  name        = var.vm_name
-  tags        = var.tags
-  node_name   = var.target_node
-  description = var.description
+  name          = var.vm_name
+  node_name     = var.target_node
+  description   = var.description
+  scsi_hardware = var.scsi_hardware
 
   cpu {
     cores = var.vm_cores
-    type  = "host"
+    type  = var.type
   }
 
   memory {
@@ -23,7 +23,8 @@ resource "proxmox_virtual_environment_vm" "vm" {
   }
 
   network_device {
-    bridge = var.network_bridge
+    bridge   = var.network_bridge
+    firewall = var.firewall
   }
 
   # Disk configuration to resize the template's disk
@@ -32,6 +33,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
     size         = var.disk_size
     file_format  = "raw" # Match template's format
     datastore_id = var.disk_storage
+    iothread     = var.iothread
   }
 
   operating_system {

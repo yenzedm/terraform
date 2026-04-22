@@ -4,7 +4,7 @@ output "vm_ips" {
 }
 
 output "vm_ids" {
-  value = proxmox_virtual_environment_vm.vm.id 
+  value = proxmox_virtual_environment_vm.vm.id
 }
 
 

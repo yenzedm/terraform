@@ -1,7 +1,7 @@
 variable "vm_template_id" {}
 variable "tags" {}
-variable "vm_ip_and_mask" {}  # !!!
-variable "vm_gateway" {} # !!!
+variable "vm_ip_and_mask" {}
+variable "vm_gateway" {}
 variable "vm_name" {}
 variable "description" {}
 variable "target_node" {}

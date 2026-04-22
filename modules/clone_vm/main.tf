@@ -15,7 +15,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
   # the created machine will be turned off or on
   started = true
-  
+
   # Use template by id
   clone {
     vm_id = var.vm_template_id
