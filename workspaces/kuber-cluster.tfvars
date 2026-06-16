@@ -1,40 +1,60 @@
 mod        = "clone"
 import_vms = {}
 clone_vms = {
-  "vm-1" = {
+  "kuber-master1" = {
     # other
-    vm_template_id  = 9001
+    vm_template_id  = 104
     vm_username     = "user"
-    tags            = ["vm-1", "test"]
+    tags            = ["master1", "kuber"]
     target_node     = "proxmox"
     ssh_public_keys = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDD9lxp+h4WBx0Yj+94pv5/uBcC4El3E69a0+xiZ1qx3C4RVpHPIwWwOU5qLJUdZkcuCbPI1UNa5uj0T+rMG0yPgF85kC/xSpq6iRpF2gPHFYK5OwZSy5EgNHxdwsHRgzwg/2ShzrOrYakK2HDoaExANdvkHqePz//p0Wug5rD4SWsC9C8tqfnTsHiMfmt71IcU+2/xQFYQHFFjsOp2gUf2lOHDsn7BcawH5zZg8eC9uDXoQNQ64t7g64m1QkrZQPFCTvGR3nEg/yKyQJKLathdIpdr0Q9q7fDOcUr/x8vS/HLNFH4EidTRNKN38zWM6rLNE6FWQD9xtt/MNqRKm164yMbp5Ixa+H7O5x4uMQ9dNrupBJa19U3wCjPykQefaXlN6zbocD2zla3Yh6eJvfJxaH56n/snzxdJ7YfenQVE1giyEcSFY4scHsvzLOUbtZbgJhW7/wJZ6PcyWHXKBaZVtu5qldscEfyYeHSGMUnUQfkkqv1m/j7W2aqCt2+naO0= proxmox"
-    description     = "vm-1"
+    description     = "kuber master 1"
     # cpu
-    vm_cores = 1
+    vm_cores = 2
     # mem
-    vm_memory = 2048
+    vm_memory = 6144
     # network
-    vm_ip_and_mask = "192.168.1.176/24" # "192.168.1.176/24" or "dhcp"
+    vm_ip_and_mask = "192.168.1.120/24" # "192.168.1.176/24" or "dhcp"
     vm_gateway     = "192.168.1.1"      # if vm_ip_and_mask = "dhcp" set ""
     network_bridge = "vmbr0"
     # disks
     disk_size    = 50
     disk_storage = "local-lvm"
   },
-  "vm-2" = {
+  "kuber-node1" = {
     # other
-    vm_template_id  = 9001
+    vm_template_id  = 104
     vm_username     = "user"
-    tags            = ["vm-1", "test"]
+    tags            = ["kuber", "node1"]
     target_node     = "proxmox"
     ssh_public_keys = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDD9lxp+h4WBx0Yj+94pv5/uBcC4El3E69a0+xiZ1qx3C4RVpHPIwWwOU5qLJUdZkcuCbPI1UNa5uj0T+rMG0yPgF85kC/xSpq6iRpF2gPHFYK5OwZSy5EgNHxdwsHRgzwg/2ShzrOrYakK2HDoaExANdvkHqePz//p0Wug5rD4SWsC9C8tqfnTsHiMfmt71IcU+2/xQFYQHFFjsOp2gUf2lOHDsn7BcawH5zZg8eC9uDXoQNQ64t7g64m1QkrZQPFCTvGR3nEg/yKyQJKLathdIpdr0Q9q7fDOcUr/x8vS/HLNFH4EidTRNKN38zWM6rLNE6FWQD9xtt/MNqRKm164yMbp5Ixa+H7O5x4uMQ9dNrupBJa19U3wCjPykQefaXlN6zbocD2zla3Yh6eJvfJxaH56n/snzxdJ7YfenQVE1giyEcSFY4scHsvzLOUbtZbgJhW7/wJZ6PcyWHXKBaZVtu5qldscEfyYeHSGMUnUQfkkqv1m/j7W2aqCt2+naO0= proxmox"
-    description     = "vm-2"
+    description     = "kuber node 1"
     # cpu
     vm_cores = 1
     # mem
-    vm_memory = 2048
+    vm_memory = 4096
     # network
-    vm_ip_and_mask = "192.168.1.176/24" # "192.168.1.176/24" or "dhcp"
+    vm_ip_and_mask = "192.168.1.121/24" # "192.168.1.176/24" or "dhcp"
+    vm_gateway     = "192.168.1.1"      # if vm_ip_and_mask = "dhcp" set ""
+    network_bridge = "vmbr0"
+    # disks
+    disk_size    = 50
+    disk_storage = "local-lvm"
+  }
+  "kuber-node2" = {
+    # other
+    vm_template_id  = 104
+    vm_username     = "user"
+    tags            = ["kuber", "node2"]
+    target_node     = "proxmox"
+    ssh_public_keys = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDD9lxp+h4WBx0Yj+94pv5/uBcC4El3E69a0+xiZ1qx3C4RVpHPIwWwOU5qLJUdZkcuCbPI1UNa5uj0T+rMG0yPgF85kC/xSpq6iRpF2gPHFYK5OwZSy5EgNHxdwsHRgzwg/2ShzrOrYakK2HDoaExANdvkHqePz//p0Wug5rD4SWsC9C8tqfnTsHiMfmt71IcU+2/xQFYQHFFjsOp2gUf2lOHDsn7BcawH5zZg8eC9uDXoQNQ64t7g64m1QkrZQPFCTvGR3nEg/yKyQJKLathdIpdr0Q9q7fDOcUr/x8vS/HLNFH4EidTRNKN38zWM6rLNE6FWQD9xtt/MNqRKm164yMbp5Ixa+H7O5x4uMQ9dNrupBJa19U3wCjPykQefaXlN6zbocD2zla3Yh6eJvfJxaH56n/snzxdJ7YfenQVE1giyEcSFY4scHsvzLOUbtZbgJhW7/wJZ6PcyWHXKBaZVtu5qldscEfyYeHSGMUnUQfkkqv1m/j7W2aqCt2+naO0= proxmox"
+    description     = "kuber node 2"
+    # cpu
+    vm_cores = 1
+    # mem
+    vm_memory = 4096
+    # network
+    vm_ip_and_mask = "192.168.1.122/24" # "192.168.1.176/24" or "dhcp"
     vm_gateway     = "192.168.1.1"      # if vm_ip_and_mask = "dhcp" set ""
     network_bridge = "vmbr0"
     # disks
