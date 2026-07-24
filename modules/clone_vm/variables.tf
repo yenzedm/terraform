@@ -13,3 +13,4 @@ variable "network_bridge" {}
 variable "ssh_public_keys" {}
 variable "vm_username" {}
 variable "vm_password" {}
+variable "start_at_boot" {}

@@ -17,6 +17,7 @@ module "clone_vm" {
   vm_username     = each.value.vm_username
   vm_password     = var.vm_password
   description     = each.value.description
+  start_at_boot   = each.value.start_at_boot
 }
 
 module "import_vm" {

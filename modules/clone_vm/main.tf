@@ -12,7 +12,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
   tags        = var.tags
   node_name   = var.target_node
   description = var.description
-
+  on_boot     = var.start_at_boot
   # the created machine will be turned off or on
   started = true
 

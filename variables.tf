@@ -36,6 +36,7 @@ variable "clone_vms" {
     ssh_public_keys = string
     vm_username     = string
     description     = string
+    start_at_boot   = bool 
   }))
 }
 
